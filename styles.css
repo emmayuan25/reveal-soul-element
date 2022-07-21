@@ -752,18 +752,29 @@ body {
     }
 }
 
-#preview-page {
-    display: none;
+#preview-img {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    width: 100vw;
 }
 
-.qrcode {
+#preview-img img {
+    max-height: 70vh;
+}
+
+.show {
+    display: block;
+}
+
+.qrcode-div {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
     margin-top: 30px;
 }
 
-.qrcode img {
+#qrcode {
     width: 100px;
 }
 

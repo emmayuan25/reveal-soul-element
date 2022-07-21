@@ -10,7 +10,7 @@
 	$mysqli->set_charset("utf8");
 
     $sql = "SELECT ROUND(COUNT(*) * 100/(SELECT COUNT(*) FROM users)) as percentage FROM users
-    WHERE result = 9;";
+    WHERE result = 10;";
     $results = $mysqli->query($sql);
     $pg = $results->fetch_assoc();
     if(!$pg) {
@@ -43,9 +43,6 @@
 <body>
     <div class="container-result">
         <div class="result-element" style="background-color: white;" id="element-dark">
-            <div class="share-img">
-                <img src="../images/darkness_result.jpg">
-            </div>
 
             <div class="result-welcome">
                 <span id="username_" style="font-weight: bold;"></span> 's soul element is the
@@ -82,8 +79,18 @@
         </div>
 
     </div>
+
+    <div class="qrcode-div">
+        <img id="qrcode" style="display:none" src="../images/qrcode.jpg" />
+    </div>
+
+    <div id="preview-page"><div id="preview-img"></div></div>
+
+    <div class="saveimg-msg" data-html2canvas-ignore>
+        <span>long press to save your result and share!</span>
+    </div>
     
-    <div id="results-community">
+    <div id="results-community" data-html2canvas-ignore>
             <button class="layered-card" id="results-community-tab" onclick="location.href='../pages/community.php'">
                 Community
             </button>
@@ -92,9 +99,6 @@
                 Redo Test
             </button>
     </div>
-    <div class="saveimg-msg">
-        <span>long press to save your result and share!</span>
-    </div>
 
     
     <script>
@@ -102,7 +106,8 @@
         document.getElementById("username_").innerHTML = name;
     </script>
     <script src="../main.js"></script>
-    <script src="../js/resultjs"></script>
+    <script src="../js/html2canvas.min.js"></script>
+    <script src="../js/draw.js"></script>
 
 </body>
 </html>

@@ -10,7 +10,7 @@
 	$mysqli->set_charset("utf8");
 
     $sql = "SELECT ROUND(COUNT(*) * 100/(SELECT COUNT(*) FROM users)) as percentage FROM users
-    WHERE result = 7;";
+    WHERE result = 8;";
     $results = $mysqli->query($sql);
     $pg = $results->fetch_assoc();
     if(!$pg) {
@@ -80,7 +80,19 @@
             </div>
         </div>
 
-        <div id="results-community">
+    </div>
+    
+    <div class="qrcode-div">
+        <img id="qrcode" style="display:none" src="../images/qrcode.jpg" />
+    </div>
+
+    <div id="preview-page"><div id="preview-img"></div></div>
+
+    <div class="saveimg-msg" data-html2canvas-ignore>
+        <span>long press to save your result and share!</span>
+    </div>
+    
+    <div id="results-community" data-html2canvas-ignore>
             <button class="layered-card" id="results-community-tab" onclick="location.href='../pages/community.php'">
                 Community
             </button>
@@ -88,19 +100,16 @@
             <button class="layered-card" id="redo-tab" onclick="location.href='../home.php'">
                 Redo Test
             </button>
-        </div>
-        <div class="saveimg-msg">
-            <span>long press to save your result and share!</span>
-        </div>
-
-
     </div>
+
+    
     <script>
         let name = localStorage.getItem("name");
         document.getElementById("username_").innerHTML = name;
     </script>
     <script src="../main.js"></script>
-    <script src="../js/resultjs.js"></script>
+    <script src="../js/html2canvas.min.js"></script>
+    <script src="../js/draw.js"></script>
 
 </body>
 </html>

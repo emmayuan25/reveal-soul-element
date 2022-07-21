@@ -68,7 +68,7 @@
         <div class="user-name processing-msg">
             <p>
                 See <span id="username-display"><?php echo $name; ?></span>
-                's Soul Element in 2 seconds
+                's Soul Element is...
             </p>
         </div>
 
