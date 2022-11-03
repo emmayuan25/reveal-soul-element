@@ -15,6 +15,7 @@
         echo $mysqli->error;
         exit();
     }
+    // jello
 
     $mysqli->close();
 
